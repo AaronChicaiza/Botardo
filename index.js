@@ -1,8 +1,6 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
 const express = require("express"); // IMPORTACIÓN REQUERIDA PARA RENDER
-const puppeteer = require('puppeteer');
-console.log("Chrome:", puppeteer.executablePath());
 // ===============================
 // CLIENTE WHATSAPP CON VACUNA ANTI-UPDATES
 // ===============================
@@ -14,15 +12,11 @@ const client = new Client({
     },
     puppeteer: {
         headless: true,
-        executablePath: puppeteer.executablePath(),
+        executablePath: "/usr/bin/google-chrome-stable",
         args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
             "--disable-dev-shm-usage",
-            "--disable-accelerated-2d-canvas",
-            "--no-first-run",
-            "--no-zygote",
-            "--single-process",
             "--disable-gpu"
         ]
     }
